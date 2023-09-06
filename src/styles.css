@@ -1,0 +1,48 @@
+html,body{
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,p,span,label{
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --navbar-bg:#444444;
+  --navbar-a-color:#fff;
+  --navbar-a-hover:#232323;
+  --lg-navbar-height:60px;
+  --search-filter-g:#ebebeb;
+}
+
+/* mobile css */
+
+@media(300px <= width <= 1368px){
+  .custom-container {
+    margin: 0 2em !important;
+  }
+}
+
+@media only screen and (max-width:1120px){
+  .fund-data{
+    display: block !important;
+  }
+}
+@media only screen and (max-width:780px){
+  .custom-container .row .col-md-8,.col-md-4{
+    display: block !important;
+    width: 100% !important;
+  }
+  .fund-data .form-select{
+    display: block;
+    width: 100% !important;
+  }
+  .numbers .lps{
+    display: block !important;
+    max-width: 100% !important;
+  }
+  .checklist{
+    margin-top: 1.5em;
+  }
+
+}
