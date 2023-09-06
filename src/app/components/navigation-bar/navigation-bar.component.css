@@ -1,0 +1,80 @@
+/* navbar css start */
+.navbar{
+  background: var(--navbar-bg);
+  padding: 0em 0em;
+}
+
+.navbar .navbar-nav{
+  background: var(--navbar-bg);
+  height: auto;
+
+}
+
+.navbar img{
+  width: 100px;
+  height: 52px;
+}
+
+.navbar .navbar-brand{
+  background-color: var(--navbar-a-color);
+  padding: 0em 1.3em;
+  margin-left: -12px;
+}
+
+.navbar .nav-item a{
+  color: var(--navbar-a-color);
+  padding: 1.1em 1.2em !important;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+}
+.navbar .nav-item a ion-icon{
+  font-size: 1.5em;
+  padding: 0 6px;
+}
+
+.navbar input[type=search]{
+  position: relative;
+  top: 0px;
+  background: transparent;
+  border: 0;
+  color: var(--navbar-a-color);
+}
+
+.navbar .nav-item .search-icon{
+  font-size: 2em;
+  color: var(--navbar-a-color);
+}
+input[type=search]:focus {
+  outline: none;
+  box-shadow: none; /* This is to remove Bootstrap's box-shadow on focus if you are using Bootstrap */
+}
+
+.navbar input[type=search]::placeholder{
+  color: var(--navbar-a-color);
+}
+
+.navbar .nav-item:hover a{
+  background: var(--navbar-a-hover);
+  color: #fff;
+  cursor: pointer;
+}
+
+.navbar-right-icons{
+  background: var(--navbar-bg);
+  padding: 0em 1em;
+  border-radius: 4px;
+  margin: 0 0;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.navbar-right-icons ion-icon{
+  color: #fff;
+  padding: 0em 0.2em;
+  font-size: 1.5em;
+}
+
+.navbar-right-icons ion-icon:hover{
+  color: var(--navbar-a-hover);
+}
