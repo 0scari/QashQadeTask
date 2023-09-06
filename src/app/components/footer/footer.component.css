@@ -1,0 +1,16 @@
+.footer{
+  background: var(--navbar-bg);
+  padding: 0.3em 2em;
+  margin-top: 2em;
+}
+
+.footer h4{
+  font-size: 1em;
+  margin: 0 1em;
+  color: var(--navbar-a-color);
+}
+
+.footer ion-icon{
+  color: var(--navbar-a-color);
+  font-size: 2em;
+}
