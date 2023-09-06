@@ -5,19 +5,30 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CountTileComponent } from './components/count-tile/count-tile.component';
+import { FundPartnerAssignmentModule } from "./modules/fund-partner-assignment/fund-partner-assignment.module";
+import { RouterModule, Routes } from "@angular/router";
+import {
+  FundPartnerAssignmentComponent
+} from "./modules/fund-partner-assignment/components/fund-partner-assignment/fund-partner-assignment.component";
+
+const appRoutes: Routes = [
+  { path: '', component: FundPartnerAssignmentComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationBarComponent,
-    FooterComponent,
-    CountTileComponent
+    FooterComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FundPartnerAssignmentModule,
+    RouterModule.forRoot(
+      appRoutes
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
