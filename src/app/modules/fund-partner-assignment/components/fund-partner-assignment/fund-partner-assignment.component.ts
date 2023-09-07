@@ -36,7 +36,7 @@ export class FundPartnerAssignmentComponent implements OnInit {
 
   allFunds: Fund[];
   selectedFund: Fund | undefined;
-  fundPartners: FundPartner[];
+  fundPartners: FundPartner[] | undefined;
   totalTransferEventCount: number;
 
   constructor(private apiService: PartnerAssignmentApiService) {
@@ -81,6 +81,7 @@ export class FundPartnerAssignmentComponent implements OnInit {
       )
       .subscribe(partners => {
         this.fundPartners = partners;
+        this.totalTransferEventCount = partners.reduce((count, partner) => count + partner.partnershipTransferEvents?.length, 0);
     });
   }
 

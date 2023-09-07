@@ -7,6 +7,6 @@ export interface PartnershipTransferEvent {
 }
 
 export enum TransferType {
-  Transferrer,
-  Transferee
+  Transferrer = 'Transferrer',
+  Transferee = 'Transferee'
 }

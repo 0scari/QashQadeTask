@@ -4,8 +4,8 @@ export interface FundPartner {
   id: string;
   type: string;
   name: string;
-  identity: string;
+  identifier: string;
   assignmentDate: string;
   fundId: string;
-  partnershipTransferEvents?: PartnershipTransferEvent[];
+  partnershipTransferEvents: PartnershipTransferEvent[];
 }

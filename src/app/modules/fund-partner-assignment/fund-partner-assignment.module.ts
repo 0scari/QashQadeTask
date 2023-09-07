@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FundPartnerAssignmentComponent } from './components/fund-partner-assignment/fund-partner-assignment.component';
 import { CountTileComponent } from "./components/count-tile/count-tile.component";
 import { FundPartnerFilterComponent } from './components/fund-partner-filter/fund-partner-filter.component';
+import { FundPartnerAssignmentTableComponent } from './components/fund-partner-assignment-table/fund-partner-assignment-table.component';
 
 
 
@@ -10,7 +11,8 @@ import { FundPartnerFilterComponent } from './components/fund-partner-filter/fun
   declarations: [
     FundPartnerAssignmentComponent,
     CountTileComponent,
-    FundPartnerFilterComponent
+    FundPartnerFilterComponent,
+    FundPartnerAssignmentTableComponent
   ],
   exports: [ FundPartnerAssignmentComponent ],
   imports: [

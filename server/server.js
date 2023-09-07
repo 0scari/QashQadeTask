@@ -17,7 +17,7 @@ app.get("/api/fund/:id/partners", (request, response) => {
         id: '1',
         type: 'LP',
         name: 'Paul Foley',
-        identity: 'PF',
+        identifier: 'PF',
         assignmentDate: '01-Jan-2018',
         fundId: '1'
       },
@@ -25,7 +25,7 @@ app.get("/api/fund/:id/partners", (request, response) => {
         id: '2',
         type: 'iLP',
         name: 'Sharon Vazs',
-        identity: 'SV',
+        identifier: 'SV',
         assignmentDate: '02-Jan-2018',
         fundId: '1'
       },
@@ -48,10 +48,17 @@ app.get("/api/fund/partner/:id/transfer-events", (request, response) => {
       {
         id: '2',
         fundPartnerId: request.params.id,
+        type: 'Transferee',
+        value: '40.00%',
+        date: '29-Jun-2021'
+      },
+      {
+        id: '3',
+        fundPartnerId: request.params.id,
         type: 'Transferrer',
         value: '40.00%',
         date: '30-Jun-2021'
-      },
+      }
     ]);
   }
 
