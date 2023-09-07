@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class CountTileComponent {
 
   @Input() color: string;
-  @Input() count: number;
+  @Input() count: number | undefined;
   @Input() label: string;
 
 }

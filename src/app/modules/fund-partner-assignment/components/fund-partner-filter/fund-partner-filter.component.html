@@ -4,7 +4,7 @@
     <select class="form-select" #thisSelect (change)="emitOptionValue(thisSelect.value)" aria-label="Default select example">
       <option disabled selected> Please select </option>
       <option *ngFor="let option of options"
-        [value]="option.value">
+        [value]=option.value>
         {{ option.label }}
       </option>
     </select>

@@ -3,9 +3,9 @@ import { TileColor } from "../count-tile/count-tile.component";
 import { FundPartnerFilterOption } from "../fund-partner-filter/fund-partner-filter.component";
 import { Fund } from "../../models/fund";
 import { PartnerAssignmentApiService } from "../../services/partner-assignment-api.service";
+import { FundPartner } from "../../models/fund-partner";
 
 enum Filter {
-  Fund = 'fund',
   PerformanceFee = 'performanceFee',
   ManagementFee = 'managementFee',
   OtherGP = 'otherGP'
@@ -25,29 +25,37 @@ export class FundPartnerAssignmentComponent implements OnInit {
     {label: 'Yes', value: true},
     {label: 'No', value: false}
   ]
-  fundFilterOptions: FundPartnerFilterOption<Fund>[];
+  fundFilterOptions: FundPartnerFilterOption<string>[];
 
   filters = {
-    [Filter.Fund]: undefined,
     [Filter.PerformanceFee]: undefined,
     [Filter.ManagementFee]: undefined,
     [Filter.OtherGP]: undefined,
   }
+
+  allFunds: Fund[];
+  selectedFund: Fund | undefined;
+  fundPartners: FundPartner[];
+  totalTransferEventCount: number;
 
   constructor(private apiService: PartnerAssignmentApiService) {
   }
 
   ngOnInit(): void {
     this.apiService.getAllFunds().subscribe(funds => {
-      this.fundFilterOptions = funds?.map(fund => new FundPartnerFilterOption<Fund>(fund.name, fund))
+      this.allFunds = funds;
+      this.fundFilterOptions = funds?.map(fund => new FundPartnerFilterOption<string>(fund.name, fund.id))
     })
   }
 
+  setSelectedFund(fundId: string): void {
+    this.selectedFund = this.allFunds.find(fund => fund.id === fundId);
+    this.refreshViewsIfFiltersAreSet();
+  }
   setFilter(filter: Filter, value: any): void {
     this.filters[filter] = value;
     this.refreshViewsIfFiltersAreSet();
   }
-
 
   private refreshViewsIfFiltersAreSet() {
     let shouldRefresh = true;
@@ -56,13 +64,16 @@ export class FundPartnerAssignmentComponent implements OnInit {
         shouldRefresh = false;
       }
     }
-    if (shouldRefresh) {
+    if (this.selectedFund && shouldRefresh) {
+      console.debug('Refreshing views')
       this.refreshViews();
     }
   }
 
   private refreshViews() {
-    console.log('all set')
+    this.apiService.getFundPartners(this.selectedFund as Fund).subscribe(partners => {
+      this.fundPartners = partners;
+    });
   }
 
 }

@@ -7,7 +7,7 @@
           <h3 class="my-4">Fund Partner Assignment:</h3>
 
           <app-fund-partner-filter label="Fund" [options]="fundFilterOptions"
-              (optionChanged)="setFilter(Filter.Fund, $event)">
+              (optionChanged)="setSelectedFund($event)">
           </app-fund-partner-filter>
 
           <app-fund-partner-filter label="Fee Performance/Carry Partner" [options]="commonFilterOptions"
@@ -25,11 +25,11 @@
       </div>
 
       <div class="col-md-4">
-        <app-count-tile [count]=55 [label]="'Number of LPs assigned'" [color]="TileColor.Red"></app-count-tile>
-        <app-count-tile [count]=15 [label]="'Partner Transfer Events'" [color]="TileColor.Blue"></app-count-tile>
+        <app-count-tile [count]=fundPartners?.length [label]="'Number of LPs assigned'" [color]="TileColor.Red"></app-count-tile>
+        <app-count-tile [count]=totalTransferEventCount [label]="'Partner Transfer Events'" [color]="TileColor.Blue"></app-count-tile>
       </div>
 
-      <div class="table-record">
+      <div *ngIf="fundPartners" class="table-record">
         <table class="table">
           <tr style="background-color: #e5e5e5 !important;">
             <th width="10">Type</th>
