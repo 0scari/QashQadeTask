@@ -29,9 +29,9 @@ export class FundPartnerAssignmentComponent implements OnInit {
   fundFilterOptions: FundPartnerFilterOption<string>[];
 
   filters = {
-    [Filter.PerformanceFee]: undefined,
-    [Filter.ManagementFee]: undefined,
-    [Filter.OtherGP]: undefined,
+    [Filter.PerformanceFee]: '',
+    [Filter.ManagementFee]: '',
+    [Filter.OtherGP]: '',
   }
 
   allFunds: Fund[];
@@ -61,7 +61,7 @@ export class FundPartnerAssignmentComponent implements OnInit {
   private refreshViewsIfFiltersAreSet() {
     let shouldRefresh = true;
     for (let filter in this.filters) {
-      if (!this.filters[filter as Filter]) {
+      if (!this.filters[filter as Filter].length) {
         shouldRefresh = false;
       }
     }
@@ -72,7 +72,7 @@ export class FundPartnerAssignmentComponent implements OnInit {
   }
 
   private refreshViews() {
-    this.apiService.getFundPartners(this.selectedFund as Fund)
+    this.apiService.getFundPartners(this.selectedFund as Fund, this.filters[Filter.PerformanceFee], this.filters[Filter.PerformanceFee], this.filters[Filter.PerformanceFee])
       .pipe(
         map(partners => {
           return forkJoin(partners.map(partner => this.apiService.enrichWithTransferEvents(partner)));

@@ -12,6 +12,9 @@ app.get("/api/funds", (request, response) => {
 });
 
 app.get("/api/fund/:id/partners", (request, response) => {
+  // I was looking to add filtering based on the query params e.g. performanceFee and managementFee
+  // but I'm running out of time
+
   response.send([
       {
         id: '1',
