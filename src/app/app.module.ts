@@ -21,7 +21,7 @@ const appRoutes: Routes = [
     NavigationBarComponent,
     FooterComponent
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ], // enables use of <ion-icon> tags, TODO: narrow down to only that tag
   imports: [
     BrowserModule,
     HttpClientModule,
