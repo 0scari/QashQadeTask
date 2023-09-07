@@ -1,0 +1,13 @@
+.fund-data{
+  width: 100%;
+  max-width: 740px;
+}
+.fund-data .form-select{
+  width: 400px !important;
+  font-weight: 500;
+}
+h1{
+  font-size: 1.2em;
+  font-weight: 500;
+  margin: 0.6em 0em;
+}

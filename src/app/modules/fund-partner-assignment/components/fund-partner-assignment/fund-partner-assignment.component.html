@@ -6,42 +6,21 @@
 
           <h3 class="my-4">Fund Partner Assignment:</h3>
 
-          <div class="fund-data d-flex justify-content-between">
-            <h1>Fund:</h1>
-            <div class="dropdown">
-              <select class="form-select" aria-label="Default select example">
-                <option selected> Fund A </option>
-                <option> Fund B </option>
-              </select>
-            </div>
-          </div>
+          <app-fund-partner-filter label="Fund" [options]="commonFilterOptions"
+              (optionChanged)="setFilter(Filter.Fund, $event)">
+          </app-fund-partner-filter>
 
-          <div class="fund-data d-flex justify-content-between">
-            <h1>Fee Performance/Carry Partner:</h1>
-            <div class="dropdown">
-              <select [disabled]="true" class="form-select" aria-label="Default select example">
-                <option selected> Deselected </option>
-              </select>
-            </div>
-          </div>
+          <app-fund-partner-filter label="Fee Performance/Carry Partner" [options]="commonFilterOptions"
+              (optionChanged)="setFilter(Filter.PerformanceFee, $event)">
+          </app-fund-partner-filter>
 
-          <div class="fund-data d-flex justify-content-between">
-            <h1>Management Fee Partner:</h1>
-            <div class="dropdown">
-              <select [disabled]="true" class="form-select" aria-label="Default select example">
-                <option selected>Deselected</option>
-              </select>
-            </div>
-          </div>
+          <app-fund-partner-filter label="Management Fee Partner" [options]="commonFilterOptions"
+               (optionChanged)="setFilter(Filter.ManagementFee, $event)">
+          </app-fund-partner-filter>
 
-          <div class="fund-data d-flex justify-content-between">
-            <h1>Other GP:</h1>
-            <div class="dropdown">
-              <select [disabled]="true" class="form-select" aria-label="Default select example">
-                <option selected>Deselected</option>
-              </select>
-            </div>
-          </div>
+          <app-fund-partner-filter label="Other GP" [options]="commonFilterOptions"
+               (optionChanged)="setFilter(Filter.OtherGP, $event)">
+          </app-fund-partner-filter>
         </div>
       </div>
 
