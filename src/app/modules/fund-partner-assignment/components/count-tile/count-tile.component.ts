@@ -7,8 +7,13 @@ import { Component, Input } from '@angular/core';
 })
 export class CountTileComponent {
 
-  @Input() colorCode: string;
+  @Input() color: string;
   @Input() count: number;
   @Input() label: string;
 
+}
+
+export enum TileColor {
+  Red = '#b70f0a',
+  Blue = '#0844a4'
 }

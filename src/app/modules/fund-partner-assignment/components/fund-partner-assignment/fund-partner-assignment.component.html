@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-md-8">
         <div class="fund-partner">
+
           <h3 class="my-4">Fund Partner Assignment:</h3>
+
           <div class="fund-data d-flex justify-content-between">
             <h1>Fund:</h1>
             <div class="dropdown">
@@ -18,7 +20,7 @@
             <h1>Fee Performance/Carry Partner:</h1>
             <div class="dropdown">
               <select [disabled]="true" class="form-select" aria-label="Default select example">
-                <option selected>Deselected</option>
+                <option selected> Deselected </option>
               </select>
             </div>
           </div>
@@ -42,14 +44,14 @@
           </div>
         </div>
       </div>
+
       <div class="col-md-4">
-        <app-count-tile [count]=55 [label]="'Number of LPs assigned'" [colorCode]="'#b70f0a'"></app-count-tile>
-        <app-count-tile [count]=15 [label]="'Partner Transfer Events'" [colorCode]="'#0844a4'"></app-count-tile>
+        <app-count-tile [count]=55 [label]="'Number of LPs assigned'" [color]="TileColor.Red"></app-count-tile>
+        <app-count-tile [count]=15 [label]="'Partner Transfer Events'" [color]="TileColor.Blue"></app-count-tile>
       </div>
 
       <div class="table-record">
         <table class="table">
-
           <tr style="background-color: #e5e5e5 !important;">
             <th width="10">Type</th>
             <th scope="col">Lp Name</th>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TileColor } from "../count-tile/count-tile.component";
 
 @Component({
   selector: 'app-fund-partner-assignment',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class FundPartnerAssignmentComponent {
 
+  protected readonly TileColor = TileColor;
 }
