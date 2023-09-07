@@ -14,3 +14,9 @@
   color: var(--navbar-a-color);
   font-size: 2em;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
