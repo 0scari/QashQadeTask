@@ -4,6 +4,7 @@ import { FundPartnerFilterOption } from "../fund-partner-filter/fund-partner-fil
 import { Fund } from "../../models/fund";
 import { PartnerAssignmentApiService } from "../../services/partner-assignment-api.service";
 import { FundPartner } from "../../models/fund-partner";
+import { concatAll, forkJoin, map, of, switchMap } from "rxjs";
 
 enum Filter {
   PerformanceFee = 'performanceFee',
@@ -71,8 +72,15 @@ export class FundPartnerAssignmentComponent implements OnInit {
   }
 
   private refreshViews() {
-    this.apiService.getFundPartners(this.selectedFund as Fund).subscribe(partners => {
-      this.fundPartners = partners;
+    this.apiService.getFundPartners(this.selectedFund as Fund)
+      .pipe(
+        map(partners => {
+          return forkJoin(partners.map(partner => this.apiService.enrichWithTransferEvents(partner)));
+        }),
+        concatAll()
+      )
+      .subscribe(partners => {
+        this.fundPartners = partners;
     });
   }
 

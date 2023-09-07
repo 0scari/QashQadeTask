@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { map, Observable, tap } from "rxjs";
 import { Fund } from "../models/fund";
 import { FundPartner } from "../models/fund-partner";
+import { PartnershipTransferEvent } from "../models/partnership-transfer-event";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,16 @@ export class PartnerAssignmentApiService {
 
   getFundPartners(fund: Fund): Observable<FundPartner[]> {
     return this.http.get<FundPartner[]>(`api/fund/${fund.id}/partners`);
+  }
+
+  enrichWithTransferEvents(partner: FundPartner): Observable<FundPartner> {
+    return this.http.get<PartnershipTransferEvent[]>(`/api/fund/partner/${partner.id}/transfer-events`)
+      .pipe(
+        map(transferEvents => {
+          partner.partnershipTransferEvents = transferEvents;
+          return partner;
+        })
+      );
   }
 
 }

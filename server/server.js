@@ -34,10 +34,27 @@ app.get("/api/fund/:id/partners", (request, response) => {
 });
 
 app.get("/api/fund/partner/:id/transfer-events", (request, response) => {
-  response.send([
-      // todo
-    ]
-  );
+  if (request.params.id === '1') {
+    response.send([]);
+  } else if (request.params.id === '2') {
+    response.send([
+      {
+        id: '1',
+        fundPartnerId: request.params.id,
+        type: 'Transferee',
+        value: 'by Commitment',
+        date: '15-Sep-2020'
+      },
+      {
+        id: '2',
+        fundPartnerId: request.params.id,
+        type: 'Transferrer',
+        value: '40.00%',
+        date: '30-Jun-2021'
+      },
+    ]);
+  }
+
 });
 
 app.listen(3000, () => {
