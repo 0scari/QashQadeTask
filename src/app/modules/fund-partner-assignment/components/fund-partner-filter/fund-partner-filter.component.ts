@@ -16,7 +16,6 @@ export class FundPartnerFilterComponent {
   @Output() optionChanged: EventEmitter<any> = new EventEmitter();
 
   emitOptionValue(value: any): void {
-    console.log(value)
     this.optionChanged.emit(value);
   }
 }
