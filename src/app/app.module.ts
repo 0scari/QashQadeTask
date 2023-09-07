@@ -6,14 +6,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FundPartnerAssignmentModule } from "./modules/fund-partner-assignment/fund-partner-assignment.module";
-import { RouterModule, Routes } from "@angular/router";
-import {
-  FundPartnerAssignmentComponent
-} from "./modules/fund-partner-assignment/components/fund-partner-assignment/fund-partner-assignment.component";
-
-const appRoutes: Routes = [
-  { path: '', component: FundPartnerAssignmentComponent }
-];
+import { RouterModule } from "@angular/router";
+import { appRoutes } from "./app.routes";
 
 @NgModule({
   declarations: [
