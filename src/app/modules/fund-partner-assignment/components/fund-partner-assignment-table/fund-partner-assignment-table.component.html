@@ -1,6 +1,6 @@
 <table class="table">
   <tr style="background-color: #e5e5e5 !important;">
-    <th width="10">Type</th>
+    <th>Type</th>
     <th scope="col">Lp Name</th>
     <th scope="col">ID</th>
     <th scope="col">Assignment Date</th>
@@ -10,6 +10,7 @@
     <th scope="col">Transfer %</th>
   </tr>
 
+<!--  below code can be further extracted into components, for now leaving it like this-->
   <ng-container *ngFor="let partner of partners; let i = index">
     <tr>
       <td [attr.rowspan]="partner.partnershipTransferEvents.length || 1">{{partner.type}}</td>
