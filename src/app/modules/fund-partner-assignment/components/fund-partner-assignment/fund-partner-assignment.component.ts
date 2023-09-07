@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TileColor } from "../count-tile/count-tile.component";
 import { FundPartnerFilterOption } from "../fund-partner-filter/fund-partner-filter.component";
+import { Fund } from "../../models/fund";
+import { PartnerAssignmentApiService } from "../../services/partner-assignment-api.service";
 
 enum Filter {
   Fund = 'fund',
@@ -14,7 +16,7 @@ enum Filter {
   templateUrl: './fund-partner-assignment.component.html',
   styleUrls: ['./fund-partner-assignment.component.css']
 })
-export class FundPartnerAssignmentComponent {
+export class FundPartnerAssignmentComponent implements OnInit {
 
   protected readonly TileColor = TileColor; // implements access in the template
   protected readonly Filter = Filter;
@@ -23,12 +25,22 @@ export class FundPartnerAssignmentComponent {
     {label: 'Yes', value: true},
     {label: 'No', value: false}
   ]
+  fundFilterOptions: FundPartnerFilterOption<Fund>[];
 
   filters = {
     [Filter.Fund]: undefined,
     [Filter.PerformanceFee]: undefined,
     [Filter.ManagementFee]: undefined,
     [Filter.OtherGP]: undefined,
+  }
+
+  constructor(private apiService: PartnerAssignmentApiService) {
+  }
+
+  ngOnInit(): void {
+    this.apiService.getAllFunds().subscribe(funds => {
+      this.fundFilterOptions = funds?.map(fund => new FundPartnerFilterOption<Fund>(fund.name, fund))
+    })
   }
 
   setFilter(filter: Filter, value: any): void {
@@ -52,4 +64,5 @@ export class FundPartnerAssignmentComponent {
   private refreshViews() {
     console.log('all set')
   }
+
 }

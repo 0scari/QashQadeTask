@@ -3,6 +3,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class FundPartnerFilterOption<T> {
   label: string;
   value: T;
+
+  constructor(label: string, value: T) {
+    this.label = label;
+    this.value = value;
+  }
 }
 
 @Component({

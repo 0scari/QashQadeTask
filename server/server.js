@@ -4,8 +4,9 @@ const app = express();
 
 app.get("/api/funds", (request, response) => {
   response.send([
-      {id: "123", name: "Fund A"},
-      {id: "124", name: "Fund B"}
+      {id: "1", name: "Fund A"},
+      {id: "2", name: "Fund B"},
+      {id: "3", name: "Fund C"},
     ]
   );
 });
